@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./assets/css/bootstrap.min.css">
+  <link rel="stylesheet" href="./assets/css/style.css">
+  <link rel="stylesheet" href="./assets/css/80mm.css">
+  <link rel="stylesheet" href="./assets/css/ticket.css">
+  <link rel="stylesheet" href="./assets/css/spectrum.css">
+  <style>
+    .sp-replacer {
+      height: 37px;
+      margin-bottom: 4px;
+    }
+  </style>
+  <title>Setting</title>
+</head>
+
+<body>
+  <div class="container-fluid">
+
+    <form class="row g-3" id="form-setting" style="margin: 10px;">
+      <h4>ตั้งค่า</h4>
+      <div class="form-group row">
+        <div class="col-md-6">
+          <label for="header" class="form-label">Header</label>
+          <input type="text" class="form-control" id="header" name="header" placeholder="ชื่อหน่วยงาน">
+        </div>
+
+        <div class="col-md-6">
+          <label for="caption" class="form-label">Caption</label>
+          <input type="text" class="form-control" id="caption" name="caption" placeholder="คิวฉีดวัคซีน">
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <div class="col-md-6">
+          <label for="btn-print-label" class="form-label">ชื่อปุ่มพิมพ์บัตรคิว</label>
+          <input type="text" class="form-control" id="btn-print-label" name="button_label" placeholder="รับบัตรคิว">
+        </div>
+        <div class="col-md-6">
+          <label for="color-btn-print" class="form-label">สีปุ่มพิมพ์บัตรคิว</label>
+          <input type="text" class="form-control" id="color-btn-print" name="button_color"
+            style="display: inline-block;width: 80%;">
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <div class="col-md-6">
+          <label for="video" class="form-label">Video</label>
+          <div class="input-group mb-3">
+            <input id="video" type="text" class="form-control" name="video">
+            <button class="btn btn-outline-secondary" type="button" id="select-file">Select</button>
+          </div>
+        </div>
+      </div>
+      <div class="form-group row">
+        <div class="col-md-12">
+          <label for="marquee" class="form-label">ข้อความประชาสัมพันธ์</label>
+          <textarea type="text" class="form-control" id="marquee" name="marquee" rows="3"></textarea>
+        </div>
+      </div>
+      <hr>
+      <h4>ตั้งค่าการพิมพ์</h4>
+      <div class="form-group row">
+        <div class="col-md-6">
+          <label for="printers" class="form-label">Printers</label>
+          <select id="printers" class="form-select" name="printer">
+            <option value="">--- เลือก ---</option>
+          </select>
+        </div>
+
+        <div class="col-md-6">
+          <label for="limit-queue" class="form-label">Limit</label>
+          <input type="number" class="form-control" id="limit-queue" name="limit_queue">
+          <div class="form-text">
+            <small>จำนวนคิวที่ต้องการจำกัด จะกำหนดหรือไม่กำหนดก็ได้</small>
+          </div>
+        </div>
+      </div>
+
+      <!-- <div class="form-group row">
+        <div class="col-md-6">
+          <label for="print-header" class="form-label">Header</label>
+          <input type="email" class="form-control" id="print-header" name="print_header" placeholder="คิวฉีดวัคซีน">
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <div class="col-md-6">
+          <label for="print-caption" class="form-label">Caption</label>
+          <input type="email" class="form-control" id="print-caption" name="print_caption" placeholder="หมายเลขคิว">
+        </div>
+      </div>
+
+      <div class="form-group row mt-2">
+        <div class="col-6">
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" id="show-qr" name="show_qr">
+            <label class="form-check-label" for="show-qr">
+              Show QR Code
+            </label>
+          </div>
+        </div>
+
+        <div class="col-6">
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" id="show-barcode" name="show_barcode">
+            <label class="form-check-label" for="show-barcode">
+              Show Bar Code
+            </label>
+          </div>
+        </div>
+      </div> -->
+
+
+      <div class="form-group row">
+        <div class="col-md-6">
+          <label for="prefix" class="form-label">ตัวอักษรหน้าเลขคิว</label>
+          <input type="text" class="form-control" id="prefix" name="prefix" value="A" placeholder="ตัวอักษรหน้าเลขคิว">
+        </div>
+
+        <div class="col-md-6">
+          <label for="num-digit" class="form-label">จำนวนหลักเลขคิว</label>
+          <input type="number" class="form-control" id="num-digit" name="num_digit" value="3"
+            placeholder="จำนวนหลักเลขคิว">
+          <div class="form-text">
+            <small>(ตัวอักษรหน้าเลขคิว + จำนวนหลักเลขคิว) เช่น จำกัดไว้ที่ 3 ตัวเลขลำดับคิวจะเป็น A001 </small>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <div class="col-md-6">
+          <label for="ticket-template" class="form-label">ออกแบบบัตรคิว</label>
+          <textarea id="ticket-template"></textarea>
+        </div>
+        <div class="col-md-6">
+          <label for="ticket-template" class="form-label">ตัวอย่างบัตรคิว</label>
+          <div id="editor-preview"></div>
+        </div>
+      </div>
+
+      <div class="col-12 text-center">
+        <button type="submit" class="btn btn-primary">บันทึก</button>
+      </div>
+    </form>
+  </div>
+  <script>
+    window.$ = window.jQuery = require('jquery');
+  </script>
+  <!-- <script src="../assets/js/jquery.min.js"></script> -->
+  <script src="./assets/js/popper.min.js"></script>
+  <script src="./assets/js/bootstrap.min.js"></script>
+  <script src="./assets/ckeditor/ckeditor.js"></script>
+  <script src="./assets/js/spectrum.js"></script>
+  <script src="./assets/js/setting.js"></script>
+</body>
+
+</html>

@@ -1,19 +1,98 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="UTF-8">
-    <!-- https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP -->
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'">
-    <meta http-equiv="X-Content-Security-Policy" content="default-src 'self'; script-src 'self'">
-    <title>Hello World!</title>
-  </head>
-  <body>
-    <h1>Hello World!</h1>
-    We are using Node.js <span id="node-version"></span>,
-    Chromium <span id="chrome-version"></span>,
-    and Electron <span id="electron-version"></span>.
 
-    <!-- You can also require other files to run in this process -->
-    <script src="./renderer.js"></script>
-  </body>
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./assets/css/bootstrap.min.css">
+  <link rel="stylesheet" href="./assets/css/all.min.css">
+  <link rel="stylesheet" href="./assets/css/style.css">
+  <link rel="stylesheet" href="./assets/css/button.css">
+  <link rel="stylesheet" href="./assets/css/video-js.css">
+  <title>Smart Q</title>
+</head>
+
+<body>
+  <div id="container-home" class="container-fluid" style="margin: auto;padding: 25px;">
+    <h1 id="home-header"></h1>
+    <h3 style="margin-left: 20px;"><i id="home-caption"></i></h3>
+    <div class="text-center" style="display: flex;justify-content: center;">
+      <video id="my-video" class="video-js" autoplay ></video>
+    </div>
+
+
+    <h3 class="text-center">คิวลงทะเบียน</h3>
+    <div class="main-content">
+      <div class="item button-jittery" style="border-radius: 20px;">
+        <button id="btn-print"
+          style="background: #f1c40f;-webkit-box-shadow: 0 2px 4px 0 rgb(27 27 27 / 20%);box-shadow: 0 2px 4px 0 rgb(27 27 27 / 20%);">
+          <i class="fas fa-print"></i> <span id="btn-label">รับบัตรคิว</span>
+        </button>
+        <br>
+        <div style="padding-top: 20px;" class="name">
+          <span id="home-datetime"></span>
+          <span id="time__hours"></span>:<span id="time__min"></span>:<span id="time__sec"></span> น.
+        </div>
+      </div>
+      <marquee scrollamount="12" style="position: fixed;bottom: 0;">
+        <h1 id="marquee">ประชาสัมพันธ์......</h1>
+      </marquee>
+      <br>
+      <!-- <div class="item button-pulse" style="--bg-color: #e67e22">
+        <div class="button__wrapper">
+          <div class="pulsing"></div><button>รับบัตรคิว</button>
+        </div>
+        <div class="name">Dubstep</div>
+      </div> -->
+      <!-- <div class="item button-typewriter" style="--bg-color: #e74c3c">
+        <div class="button__wrapper"><button>
+            <p>Click Me!</p>
+          </button></div>
+        <div class="name">Typewriter</div>
+      </div>
+      <div class="item button-pressure" style="--bg-color: #9b59b6"><button>Click Me!<marquee scrollamount="12">
+            <span>Your friends would do it.</span><span>Your mum would be proud.</span><span>Your partner would be so
+              happy.</span><span>Your cat would love you for it.</span></marquee></button>
+        <div class="name">Social Pressure</div>
+      </div>
+      <div class="item button-hand" style="--bg-color: #3498db"><button>Click Me!<div class="hands"></div></button>
+        <div class="name">Handsy</div>
+      </div>
+      <div class="item button-100" style="--bg-color:#2ecc71"><button>Click Me!<div class="emoji"></div>
+          <div class="emoji"></div>
+          <div class="emoji"></div>
+        </button>
+        <div class="name">You're 💯</div>
+      </div>
+      <div class="item button-parrot" style="--bg-color: #2c3e50"><button>Click Me!<div class="parrot"></div>
+          <div class="parrot"></div>
+          <div class="parrot"></div>
+          <div class="parrot"></div>
+          <div class="parrot"></div>
+          <div class="parrot"></div>
+        </button>
+        <div class="name">Encouragement</div>
+      </div>
+      <div class="item button-rainbow" style="--bg-color: #ecf0f1"><button>Click Me!<div class="rainbow"></div></button>
+        <div class="name">Rainbow</div>
+      </div>
+      <div class="item footer" style="--bg-color: #7f8c8d">
+        <div class="explanation">Part of the <a href="https://codepen.io/collection/XJNKLz/" target="_blank">CSS
+            Animations collection here</a> .<footer><a href="https://twitter.com/meowlivia_" target="_blank"><i
+                class="icon-social-twitter icons"></i></a><a href="https://github.com/oliviale" target="_blank"><i
+                class="icon-social-github icons"></i></a><a href="https://dribbble.com/oliviale" target="_blank"><i
+                class="icon-social-dribbble icons"></i></a></footer>
+        </div>
+      </div> -->
+    </div>
+  </div>
+  <!-- You can also require other files to run in this process -->
+  <script>
+    window.$ = window.jQuery = require('jquery');
+  </script>
+  <script src="./assets/js/video.min.js"></script>
+  <script src="./renderer.js"></script>
+</body>
+
 </html>

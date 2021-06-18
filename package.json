@@ -3,8 +3,11 @@
   "version": "1.0.0",
   "description": "A minimal Electron application",
   "main": "main.js",
+  "homepage": ".",
   "scripts": {
-    "start": "electron ."
+    "start": "electron .",
+    "pack": "electron-builder --dir",
+    "build": "electron-builder"
   },
   "repository": "https://github.com/electron/electron-quick-start",
   "keywords": [
@@ -14,9 +17,62 @@
     "tutorial",
     "demo"
   ],
-  "author": "GitHub",
+  "author": "Tanakorncode",
   "license": "CC0-1.0",
   "devDependencies": {
-    "electron": "^12.0.2"
+    "electron": "^12.0.2",
+    "electron-builder": "^22.11.7"
+  },
+  "dependencies": {
+    "electron-is-dev": "^2.0.0",
+    "jquery": "^3.6.0",
+    "jsbarcode": "^3.11.3",
+    "lodash": "^4.17.21",
+    "moment": "^2.29.1",
+    "qrcode": "^1.4.4",
+    "sprintf-js": "^1.1.2"
+  },
+  "build": {
+    "productName": "Smart Q",
+    "copyright": "Copyright © 2020 ${author}",
+    "appId": "com.andamanqueue.app",
+    "win": {
+      "icon": "icon.ico",
+      "target": [
+        {
+          "target": "nsis",
+          "arch": [
+            "x64",
+            "ia32"
+          ]
+        }
+      ]
+    },
+    "linux": {
+      "icon": "icon.ico"
+    },
+    "mac": {
+      "icon": "icon.ico"
+    },
+    "dmg": {
+      "contents": [
+        {
+          "x": 410,
+          "y": 150,
+          "type": "link",
+          "path": "/Applications"
+        },
+        {
+          "x": 130,
+          "y": 150,
+          "type": "file"
+        }
+      ]
+    },
+    "nodeGypRebuild": false,
+    "extraResources": [
+      "./setting.json",
+      "./ticket.html"
+    ]
   }
 }
